@@ -397,7 +397,7 @@ html, body, [class*="css"], .stApp, .stMarkdown, p, li, label, span, div, button
 
 /* ── Emblema neón con el logo oficial (esquina superior derecha) ── */
 .neon-badge {
-  position: fixed; top: 64px; right: 26px; z-index: 9999;
+  position: absolute; top: 4px; right: 12px; z-index: 50;
   width: 98px; height: 138px; border-radius: 24px;
   display: grid; place-items: center;
   animation: float 4.5s ease-in-out infinite;
@@ -443,8 +443,8 @@ html, body, [class*="css"], .stApp, .stMarkdown, p, li, label, span, div, button
 .kicker { font-size: 13px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
 .kicker b { color: var(--lm); font-weight: 700; }
 .title {
-  font-family: 'Anton', 'Twemoji Country Flags', Impact, 'Arial Narrow', sans-serif; font-size: clamp(44px, 7.2vw, 104px); line-height: .92; margin: 8px 0 10px;
-  text-transform: uppercase; letter-spacing: .5px;
+  font-family: 'Anton', 'Twemoji Country Flags', Impact, 'Arial Narrow', sans-serif; font-size: clamp(44px, 7.2vw, 104px); line-height: 1.14; margin: 14px 0 18px;
+  text-transform: uppercase; letter-spacing: 2.5px; word-spacing: .14em;
 }
 .title, .title * { font-family: 'Anton', 'Twemoji Country Flags', Impact, 'Arial Narrow', sans-serif !important; }
 .title .grad {
@@ -607,10 +607,11 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
 
 [data-testid="stMetric"] { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; }
 .foot { color: var(--muted); font-size: 12.5px; text-align: center; margin: 50px 0 20px; line-height: 1.7; }
+.credit { color: #FFFFFF !important; font-family: Arial, Helvetica, sans-serif !important; font-size: 19px; text-align: center; margin: 6px 0 40px; letter-spacing: .3px; }
 a { color: var(--cy) !important; }
 
 @media (max-width: 760px) {
-  .neon-badge { width: 64px; height: 92px; top: 58px; right: 12px; border-radius: 16px; }
+  .neon-badge { width: 64px; height: 92px; top: 0; right: 6px; border-radius: 16px; }
   .neon-badge::after { border-radius: 18px; }
   .neon-core { width: 60px; height: 88px; border-radius: 15px; padding: 7px; }
   .hero { padding-right: 76px; }
@@ -689,7 +690,6 @@ def show(fig, key=None):
 # PÁGINA
 # ──────────────────────────────────────────────────────────────────────────────
 html(CSS)
-html(BADGE)
 
 df = teams_df()
 rdf = routes_df()
@@ -697,7 +697,7 @@ sum_gf = int(df["gf"].sum())
 own_goals = TOTAL_GOALS - sum_gf
 
 html(
-    '<div class="hero">'
+    '<div class="hero">' + BADGE +
     '<div class="kicker">FIFA World Cup <b>2026</b> · Análisis cuantitativo</div>'
     '<div class="title">El Mundial<br><span class="grad">más grande de la historia</span></div>'
     '<div class="subtitle">48 selecciones, 3 países anfitriones, 16 estadios y 104 partidos en 39 días. '
@@ -1229,6 +1229,6 @@ with tabs[9]:
 html(
     '<div class="foot">Fuentes: FIFA · Al Jazeera · FOX Sports (estadísticas por equipo) · Transfermarkt vía Visual Capitalist '
     '(valores de mercado) · AP · ESPN · NBC Sports · Foot Africa · Wikimedia Commons (fotos de estadios) · Banderas: Twemoji (CC-BY 4.0).<br>'
-    f'Valores en dólares convertidos a un tipo de cambio de referencia de US$ {EUR_USD:.2f} por euro. '
     'Proyecto independiente, sin afiliación con la FIFA.</div>'
 )
+html('<div class="credit">Página web hecha por Valentín Gerold en colaboración con Claude</div>')
