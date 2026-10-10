@@ -546,7 +546,8 @@ html, body, [class*="css"], .stApp, .stMarkdown, p, li, label, span, div, button
 .gk .ga { font-family: 'Anton', 'Twemoji Country Flags', Impact, 'Arial Narrow', sans-serif; font-size: 30px; color: var(--accent); }
 
 /* ── Tabs (compatibles con versiones nuevas y viejas de Streamlit) ── */
-.stTabs [role="tablist"], .stTabs [data-baseweb="tab-list"] { gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.stTabs { margin-top: 34px; }
+.stTabs [role="tablist"], .stTabs [data-baseweb="tab-list"] { gap: 12px 10px; flex-wrap: wrap; justify-content: center; border-bottom: 1px solid var(--line); padding: 6px 0 14px; }
 .stTabs [role="tab"], [data-testid="stTab"], .stTabs [data-baseweb="tab"] {
   background: rgba(255,255,255,.06) !important; border: 1px solid rgba(255,255,255,.18) !important; border-radius: 999px !important;
   padding: 8px 16px !important; height: auto !important; transition: all .2s ease; margin: 0 !important;
@@ -607,7 +608,7 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
 
 [data-testid="stMetric"] { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; }
 .foot { color: var(--muted); font-size: 12.5px; text-align: center; margin: 50px 0 20px; line-height: 1.7; }
-.credit { color: #FFFFFF !important; font-family: Arial, Helvetica, sans-serif !important; font-size: 19px; text-align: center; margin: 6px 0 40px; letter-spacing: .3px; }
+.credit { color: var(--gd) !important; font-family: 'Space Grotesk', 'Twemoji Country Flags', system-ui, sans-serif !important; font-weight: 600; font-size: 20px; text-align: center; margin: 44px 0 60px; letter-spacing: .2px; text-shadow: 0 0 18px rgba(255,214,10,.35); }
 a { color: var(--cy) !important; }
 
 @media (max-width: 760px) {
@@ -1231,4 +1232,4 @@ html(
     '(valores de mercado) · AP · ESPN · NBC Sports · Foot Africa · Wikimedia Commons (fotos de estadios) · Banderas: Twemoji (CC-BY 4.0).<br>'
     'Proyecto independiente, sin afiliación con la FIFA.</div>'
 )
-html('<div class="credit">Página web hecha por Valentín Gerold en colaboración con Claude</div>')
+html('<div class="credit">Página web hecha por Valentín Gerold en colaboración con Claude.</div>')
